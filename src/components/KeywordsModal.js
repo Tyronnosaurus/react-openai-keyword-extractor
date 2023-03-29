@@ -20,7 +20,7 @@ const KeywordsModal = ({ keywords, loading, modalIsOpen, closeModal}) => {
                     )                        }
                 </ModalBody>
 
-                <ModalFooter colorScheme='blue' mr={3} onClick={closeModal}>
+                <ModalFooter colorscheme='blue' mr={3} onClick={closeModal}>
                     <Button>Close</Button>
                 </ModalFooter>
             </ModalContent>
