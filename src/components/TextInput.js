@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Textarea, Button, useToast } from "@chakra-ui/react";
+import { Textarea, Button, useToast, Text } from "@chakra-ui/react";
 
 
 const TextInput = ({ extractKeywords }) => {
     const [text, setText] = useState('')
+    const [numWords, setNumWords] = useState(0)
 
     const toast = useToast()
 
@@ -31,7 +32,12 @@ const TextInput = ({ extractKeywords }) => {
                       marginTop={6}
                       height={200}
                       value={text}
-                      onChange={(e)=>setText(e.target.value)}/>
+                      onChange={(e)=>{setText(e.target.value)
+                                      if (e.target.value.length>0) setNumWords(e.target.value.trim().split(/\s+/).length)
+                                      else                         setNumWords(0)}  
+                                }/>
+
+            <Text marginTop={1}>{numWords} words</Text>
 
             <Button bg='blue.500'
                     color='white'
