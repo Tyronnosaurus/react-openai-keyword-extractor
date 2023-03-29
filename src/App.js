@@ -36,12 +36,14 @@ function App() {
       const response = await fetch(process.env.REACT_APP_OPENAI_API_URL, options)
 
       const json = await response.json()
+      console.log(json);
 
       // We get back an array of choices so we choose the first
       console.log(json.choices[0].text.trim());
       setKeywords(json.choices[0].text.trim());
 
       setLoading(false);
+
     } catch (error) {
       console.error(error);
     }
